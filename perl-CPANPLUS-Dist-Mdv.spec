@@ -15,6 +15,7 @@ BuildRequires:  perl-version
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Readonly)
 BuildRequires:  perl(CPANPLUS)
+BuildRequires:  perl(YAML)
 Buildarch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
