@@ -11,6 +11,7 @@ License:        GPL or Artistic
 Group:          Development/Perl
 URL:            http://search.cpan.org/dist/%{module}
 Source:         http://www.cpan.org/modules/by-module/CPANPLUS/%{module}-%{version}.tar.gz
+BuildRequires:  perl-version
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Readonly)
 BuildRequires:  perl(CPANPLUS)
