@@ -1,6 +1,6 @@
 %define module  CPANPLUS-Dist-Mdv
 %define name    perl-%{module}
-%define version 0.1.3
+%define version 0.2.1
 %define release %mkrel 1
 
 Name:           %{name}
@@ -12,9 +12,10 @@ Group:          Development/Perl
 URL:            http://search.cpan.org/dist/%{module}
 Source:         http://www.cpan.org/modules/by-module/CPANPLUS/%{module}-%{version}.tar.gz
 BuildRequires:  perl-version
+BuildRequires:  perl(CPANPLUS)
+BuildRequires:  perl(File::HomeDir)
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Readonly)
-BuildRequires:  perl(CPANPLUS)
 BuildRequires:  perl(YAML)
 Buildarch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}
