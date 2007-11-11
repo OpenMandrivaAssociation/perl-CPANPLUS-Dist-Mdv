@@ -1,6 +1,6 @@
 %define module  CPANPLUS-Dist-Mdv
 %define name    perl-%{module}
-%define version 0.2.2
+%define version 0.3.0
 %define release %mkrel 1
 
 Name:           %{name}
