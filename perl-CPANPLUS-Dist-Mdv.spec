@@ -20,7 +20,6 @@ BuildRequires:  perl(Pod::POM)
 BuildRequires:  perl(Readonly)
 BuildRequires:  perl(YAML)
 Buildarch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 CPANPLUS::Dist::Mdv is a distribution class to create mandriva packages from
