@@ -1,7 +1,7 @@
 %define module  CPANPLUS-Dist-Mdv
 %define name    perl-%{module}
-%define version 0.3.7
-%define release %mkrel 2
+%define version 0.3.8
+%define release %mkrel 1
 
 Name:           %{name}
 Version:        %{version}
@@ -11,8 +11,6 @@ License:        GPL or Artistic
 Group:          Development/Perl
 URL:            http://search.cpan.org/dist/%{module}
 Source:         http://www.cpan.org/modules/by-module/CPANPLUS/%{module}-%{version}.tar.gz
-Patch0:         CPANPLUS-Dist-Mdv-0.3.7-fix-changelog-format.patch
-Patch1:         CPANPLUS-Dist-Mdv-0.3.7-enforce-summary-format.patch
 BuildRequires:  perl-version
 BuildRequires:  perl(CPANPLUS)
 BuildRequires:  perl(File::HomeDir)
@@ -43,8 +41,6 @@ the original CPAN package if you have questions.
 
 %prep
 %setup -q -n %{module}-%{version}
-%patch0 -p 1
-%patch1 -p 1
 
 %build
 %{__perl} Build.PL installdirs=vendor
