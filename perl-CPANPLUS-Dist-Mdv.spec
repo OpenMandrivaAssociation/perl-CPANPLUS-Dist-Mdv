@@ -19,6 +19,7 @@ BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Pod::POM)
 BuildRequires:  perl(Readonly)
 BuildRequires:  perl(YAML)
+BuildRequires:  perl(List::MoreUtils)
 Buildarch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
