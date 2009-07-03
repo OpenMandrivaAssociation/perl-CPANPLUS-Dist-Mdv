@@ -1,16 +1,14 @@
-%define module  CPANPLUS-Dist-Mdv
-%define name    perl-%{module}
-%define version 1.1.0
-%define release %mkrel 1
+%define upstream_name       CPANPLUS-Dist-Mdv
+%define upstream_version    1.2.0
 
-Name:           %{name}
-Version:        %{version}
-Release:        %{release}
-Summary:        A cpanplus backend to build mandriva rpms
-License:        GPL or Artistic
-Group:          Development/Perl
-URL:            http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/CPANPLUS/%{module}-%{version}.tar.gz
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+Summary:    A cpanplus backend to build mandriva rpms
+License:    GPL or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}
+Source:     http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
 BuildRequires:  perl-version
 BuildRequires:  perl(CPANPLUS)
 BuildRequires:  perl(File::HomeDir)
@@ -41,18 +39,18 @@ have the same license as perl and come without support. Please always refer to
 the original CPAN package if you have questions.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version} 
 
 %build
-%{__perl} Build.PL installdirs=vendor
-./Build
+%{__perl} Makefile.PL installdirs=vendor
+%make
 
 %install
 rm -rf %{buildroot}
-./Build install destdir=%{buildroot}
+%makeinstall_std
 
 %check
-./Build test
+%make test
 
 %clean 
 rm -rf %{buildroot}
