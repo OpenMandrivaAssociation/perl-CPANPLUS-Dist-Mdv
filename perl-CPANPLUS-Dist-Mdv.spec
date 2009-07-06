@@ -14,11 +14,12 @@ BuildRequires:  perl(CPANPLUS)
 BuildRequires:  perl(File::HomeDir)
 BuildRequires:  perl(File::Slurp)
 BuildRequires:  perl(File::Find::Rule)
+BuildRequires:  perl(List::MoreUtils)
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Pod::POM)
 BuildRequires:  perl(Readonly)
+BuildRequires:  perl(Test::Script)
 BuildRequires:  perl(YAML)
-BuildRequires:  perl(List::MoreUtils)
 Buildarch:      noarch
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
