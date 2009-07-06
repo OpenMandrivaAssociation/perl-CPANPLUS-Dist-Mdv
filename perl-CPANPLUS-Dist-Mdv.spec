@@ -13,6 +13,7 @@ BuildRequires:  perl-version
 BuildRequires:  perl(CPANPLUS)
 BuildRequires:  perl(File::HomeDir)
 BuildRequires:  perl(File::Slurp)
+BuildRequires:  perl(File::Find::Rule)
 BuildRequires:  perl(Module::Build)
 BuildRequires:  perl(Pod::POM)
 BuildRequires:  perl(Readonly)
