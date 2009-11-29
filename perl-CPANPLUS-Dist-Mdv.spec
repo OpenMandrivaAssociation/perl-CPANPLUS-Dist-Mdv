@@ -1,5 +1,5 @@
 %define upstream_name       CPANPLUS-Dist-Mdv
-%define upstream_version    1.2.1
+%define upstream_version 2.093311
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
