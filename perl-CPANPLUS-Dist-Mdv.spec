@@ -1,15 +1,16 @@
-%define upstream_name       CPANPLUS-Dist-Mdv
-%define upstream_version 2.093311
+%define upstream_name    CPANPLUS-Dist-Mdv
+%define upstream_version 2.100400
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
 Release:    %mkrel 1
+
 Summary:    A cpanplus backend to build mandriva rpms
-License:    GPL or Artistic
+License:    GPL+ or Artistic
 Group:      Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
-Source:     http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
-BuildRequires:  perl-version
+Source0:    http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:  perl(CPANPLUS)
 BuildRequires:  perl(File::HomeDir)
 BuildRequires:  perl(File::Slurp)
@@ -21,8 +22,10 @@ BuildRequires:  perl(Pod::POM)
 BuildRequires:  perl(Readonly)
 BuildRequires:  perl(Test::Script)
 BuildRequires:  perl(YAML)
+BuildRequires:  perl(version)
+
 Buildarch:      noarch
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 CPANPLUS::Dist::Mdv is a distribution class to create mandriva packages from
@@ -45,15 +48,15 @@ the original CPAN package if you have questions.
 %setup -q -n %{upstream_name}-%{upstream_version} 
 
 %build
-%{__perl} Makefile.PL installdirs=vendor
-%make
-
-%install
-rm -rf %{buildroot}
-%makeinstall_std
+%{__perl} Build.PL installdirs=vendor
+./Build
 
 %check
-%make test
+./Build test
+
+%install
+%{__rm} -rf %{buildroot}
+./Build install destdir=%{buildroot}
 
 %clean 
 rm -rf %{buildroot}
@@ -62,5 +65,5 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %doc Changes README
 %{perl_vendorlib}/CPANPLUS
+%{perl_vendorlib}/auto
 %{_mandir}/*/*
-
