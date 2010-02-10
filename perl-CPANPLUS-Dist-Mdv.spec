@@ -12,12 +12,12 @@ Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:  perl(CPANPLUS)
-BuildRequires:  perl(File::HomeDir)
-BuildRequires:  perl(File::Slurp)
 BuildRequires:  perl(File::Find::Rule)
+BuildRequires:  perl(File::HomeDir)
+BuildRequires:  perl(File::ShareDir)
+BuildRequires:  perl(File::Slurp)
 BuildRequires:  perl(List::MoreUtils)
 BuildRequires:  perl(Module::Build)
-BuildRequires:  perl(Module::Util)
 BuildRequires:  perl(Pod::POM)
 BuildRequires:  perl(Readonly)
 BuildRequires:  perl(Test::Script)
@@ -63,7 +63,7 @@ rm -rf %{buildroot}
 
 %files 
 %defattr(-,root,root)
-%doc Changes README
+%doc Changes README META.yml
 %{perl_vendorlib}/CPANPLUS
 %{perl_vendorlib}/auto
 %{_mandir}/*/*
