@@ -1,0 +1,64 @@
+diff -Naur CPANPLUS-Dist-Mdv-2.100400/lib/CPANPLUS/Dist/Mdv.pm CPANPLUS-Dist-Mdv-2.100400.new/lib/CPANPLUS/Dist/Mdv.pm
+--- CPANPLUS-Dist-Mdv-2.100400/lib/CPANPLUS/Dist/Mdv.pm	2010-02-09 20:00:22.000000000 +0300
++++ CPANPLUS-Dist-Mdv-2.100400.new/lib/CPANPLUS/Dist/Mdv.pm	2014-01-22 09:49:16.000000000 +0400
+@@ -255,6 +255,12 @@
+         my $distname = $status->distname;
+         my $rpmname  = $status->rpmname;
+ 
++        msg( "trying to install 'perl-$distname' from repositories..." );
++
++        if ( system("urpmi perl-$distname") == 0 ) {
++            return "";
++        }
++
+         msg( "building '$distname' from specfile..." );
+ 
+         # dry-run, to see if we forgot some files
+diff -Naur CPANPLUS-Dist-Mdv-2.100400/share/template.spec CPANPLUS-Dist-Mdv-2.100400.new/share/template.spec
+--- CPANPLUS-Dist-Mdv-2.100400/share/template.spec	2010-02-09 20:00:22.000000000 +0300
++++ CPANPLUS-Dist-Mdv-2.100400.new/share/template.spec	2014-01-22 10:07:16.000000000 +0400
+@@ -3,7 +3,7 @@
+ 
+ Name:       perl-%{upstream_name}
+ Version:    %perl_convert_version %{upstream_version}
+-Release:    %mkrel 1
++Release:    1
+ 
+ Summary:    DISTSUMMARY
+ License:    GPL+ or Artistic
+@@ -13,13 +13,12 @@
+ 
+ DISTBUILDREQUIRES
+ DISTARCH
+-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+ 
+ %description
+ DISTDESCR
+ 
+ %prep
+-%setup -q -n %{upstream_name}-%{upstream_version}
++%setup -qn %{upstream_name}-%{upstream_version}
+ 
+ %build
+ DISTBUILDBUILDER
+@@ -29,19 +28,10 @@
+ DISTMAKER test
+ 
+ %install
+-rm -rf %buildroot
+ DISTINSTALL
+ 
+-%clean
+-rm -rf %buildroot
+-
+ %files
+-%defattr(-,root,root)
+ DISTDOC
+ %{_mandir}/man3/*
+-%perl_vendorlib/*
++%{perl_vendorlib}/*
+ DISTEXTRA
+-
+-%changelog
+-* DISTDATE cpan2dist DISTVERS-1mdv
+-- initial mdv release, generated with cpan2dist
