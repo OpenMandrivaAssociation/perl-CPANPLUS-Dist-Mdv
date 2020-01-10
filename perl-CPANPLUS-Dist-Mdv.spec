@@ -46,7 +46,7 @@ the original CPAN package if you have questions.
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
-%apply_patches
+%autopatch -p1
 
 %build
 %{__perl} Build.PL installdirs=vendor
