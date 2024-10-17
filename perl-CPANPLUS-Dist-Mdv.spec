@@ -8,7 +8,7 @@ Release:    5
 Summary:    A cpanplus backend to build mandriva rpms
 License:    GPL+ or Artistic
 Group:      Development/Perl
-Url:        http://search.cpan.org/dist/%{upstream_name}
+Url:        https://search.cpan.org/dist/%{upstream_name}
 Source0:    http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
 Patch0:     CPANPLUS-Dist-Mdv-2.100400-urpmi.patch
 
