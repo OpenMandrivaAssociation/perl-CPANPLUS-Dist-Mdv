@@ -1,15 +1,13 @@
 %define upstream_name    CPANPLUS-Dist-Mdv
-%define upstream_version 2.100400
-
 Name:       perl-%{upstream_name}
-Version:    %{upstream_version}
-Release:    6
+Version:    2.100400
+Release:    7
 
 Summary:    A cpanplus backend to build mandriva rpms
 License:    GPL+ or Artistic
 Group:      Development/Perl
 Url:        https://metacpan.org/dist/CPANPLUS-Dist-Mdv
-Source0:    http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{upstream_version}.tar.gz
+Source0:    http://www.cpan.org/modules/by-module/Config/%{upstream_name}-%{version}.tar.gz
 Patch0:     CPANPLUS-Dist-Mdv-2.100400-urpmi.patch
 
 BuildRequires:  perl(CPANPLUS)
@@ -45,7 +43,7 @@ have the same license as perl and come without support. Please always refer to
 the original CPAN package if you have questions.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 %autopatch -p1
 
 %build
